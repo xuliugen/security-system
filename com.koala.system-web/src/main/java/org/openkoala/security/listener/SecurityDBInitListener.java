@@ -11,21 +11,21 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * 权限初始化监听器。
- * 
  * @author luzhao
- * 
  */
-public class SecurityDBInitListener implements ServletContextListener{
+public class SecurityDBInitListener implements ServletContextListener {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(SecurityDBInitListener.class);
-	
-	@Override
-	public void contextInitialized(ServletContextEvent sce) {
-		WebApplicationContext applicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext());
-		SecurityConfigFacade securityConfigFacade = applicationContext.getBean(SecurityConfigFacade.class);
-		securityConfigFacade.initSecuritySystem();
-		LOGGER.info("init Security db.");
-	}
-	@Override
-	public void contextDestroyed(ServletContextEvent sce) {}
+    private static final Logger LOGGER = LoggerFactory.getLogger(SecurityDBInitListener.class);
+
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        WebApplicationContext applicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(sce.getServletContext());
+        SecurityConfigFacade securityConfigFacade = applicationContext.getBean(SecurityConfigFacade.class);
+        securityConfigFacade.initSecuritySystem();
+        LOGGER.info("init Security db.");
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+    }
 }

@@ -10,14 +10,14 @@ import java.util.List;
 
 public class PermissionAssembler {
 
-	public static Permission toPermission(CreatePermissionCommand command) {
-		Permission result = new Permission(command.getName(), command.getIdentifier());
-		result.setDescription(command.getDescription());
-		return result;
-	}
+    public static Permission toPermission(CreatePermissionCommand command) {
+        Permission result = new Permission(command.getName(), command.getIdentifier());
+        result.setDescription(command.getDescription());
+        return result;
+    }
 
     public static PermissionDTO toPermissionDTO(Permission permission) {
-        PermissionDTO result = new PermissionDTO(permission.getId(),permission.getName(),permission.getIdentifier(),permission.getDescription());
+        PermissionDTO result = new PermissionDTO(permission.getId(), permission.getName(), permission.getIdentifier(), permission.getDescription());
         result.setVersion(permission.getVersion());
         return result;
     }

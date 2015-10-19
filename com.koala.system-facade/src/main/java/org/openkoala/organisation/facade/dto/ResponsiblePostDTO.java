@@ -7,74 +7,75 @@ import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 public class ResponsiblePostDTO implements Serializable {
 
-	private static final long serialVersionUID = -4923359393439988366L;
+    private static final long serialVersionUID = -4923359393439988366L;
 
-	private Long postId;
-	
-	private String postName;
-	
-	private String postSn;
-	
-	private String postDescription;
-	
-	private boolean principal;
+    private Long postId;
 
-	public ResponsiblePostDTO() {}
-	
-	public Long getPostId() {
-		return postId;
-	}
+    private String postName;
 
-	public void setPostId(Long postId) {
-		this.postId = postId;
-	}
+    private String postSn;
 
-	public String getPostName() {
-		return postName;
-	}
+    private String postDescription;
 
-	public void setPostName(String postName) {
-		this.postName = postName;
-	}
+    private boolean principal;
 
-	public String getPostSn() {
-		return postSn;
-	}
+    public ResponsiblePostDTO() {
+    }
 
-	public void setPostSn(String postSn) {
-		this.postSn = postSn;
-	}
+    public Long getPostId() {
+        return postId;
+    }
 
-	public String getPostDescription() {
-		return postDescription;
-	}
+    public void setPostId(Long postId) {
+        this.postId = postId;
+    }
 
-	public void setPostDescription(String postDescription) {
-		this.postDescription = postDescription;
-	}
+    public String getPostName() {
+        return postName;
+    }
 
-	public boolean isPrincipal() {
-		return principal;
-	}
+    public void setPostName(String postName) {
+        this.postName = postName;
+    }
 
-	public void setPrincipal(boolean principal) {
-		this.principal = principal;
-	}
-	
-	@Override
-	public boolean equals(Object other) {
-		if (!(other instanceof ResponsiblePostDTO)) {
-			return false;
-		}
-		ResponsiblePostDTO that = (ResponsiblePostDTO) other;
-		return new EqualsBuilder().append(postId, that.postId)
-				.append(principal, that.principal)
-				.isEquals();
-	}
+    public String getPostSn() {
+        return postSn;
+    }
 
-	@Override
-	public int hashCode() {
-		return new HashCodeBuilder().append(postId).append(principal).toHashCode();
-	}
-	
+    public void setPostSn(String postSn) {
+        this.postSn = postSn;
+    }
+
+    public String getPostDescription() {
+        return postDescription;
+    }
+
+    public void setPostDescription(String postDescription) {
+        this.postDescription = postDescription;
+    }
+
+    public boolean isPrincipal() {
+        return principal;
+    }
+
+    public void setPrincipal(boolean principal) {
+        this.principal = principal;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (!(other instanceof ResponsiblePostDTO)) {
+            return false;
+        }
+        ResponsiblePostDTO that = (ResponsiblePostDTO) other;
+        return new EqualsBuilder().append(postId, that.postId)
+                .append(principal, that.principal)
+                .isEquals();
+    }
+
+    @Override
+    public int hashCode() {
+        return new HashCodeBuilder().append(postId).append(principal).toHashCode();
+    }
+
 }

@@ -12,7 +12,6 @@ import javax.persistence.OneToOne;
 /**
  * 是一个用户，代表一个员工。可以创建非员工的用户，也可以创建非用户的员工。如果有员工刚好是用户，就创建一个EmployeeUser。
  * 通过中间层（org.openkoala.security.org.core.domain），技术（koala-security）和业务核心（koala-organisation-core）互不依赖。中间层同时起到“分”与“合”的作用。
- *
  * @author lucas
  */
 @Entity

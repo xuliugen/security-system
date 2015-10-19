@@ -20,7 +20,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 /**
  * 菜单权限资源控制器。
  * 分页都将采用POST请求方式，因GET请求搜索时携带中文会导致乱码。
- *
  * @author lucas
  */
 @Controller

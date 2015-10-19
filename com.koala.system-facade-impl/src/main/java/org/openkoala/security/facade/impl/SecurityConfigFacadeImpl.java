@@ -499,7 +499,7 @@ public class SecurityConfigFacadeImpl implements SecurityConfigFacade {
 
     @Override
     public InvokeResult grantPermisssionToMenuResource(Long permissionId, Long menuResourceId) {
-        try{
+        try {
             MenuResource menuResource = securityAccessApplication.getMenuResourceBy(menuResourceId);
             Permission permssion = securityAccessApplication.getPermissionBy(permissionId);
             securityConfigApplication.grantAuthorityToSecurityResource(permssion, menuResource);
@@ -593,7 +593,7 @@ public class SecurityConfigFacadeImpl implements SecurityConfigFacade {
         Set<Authority> authorities = new HashSet<Authority>();
         // 可能用户并没有分配角色。因此需要对其获取异常。
         Role role = securityAccessApplication.getRoleBy(roleNameOfUser);
-        if(role != null){
+        if (role != null) {
             Set<Permission> rolePermissions = role.getPermissions();
             authorities.add(role);
             authorities.addAll(rolePermissions);

@@ -17,18 +17,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/log")
 public class DefaultBusinessLogController {
 
-
     private BusinessLogApplication businessLogApplication;
-
 
     @ResponseBody
     @RequestMapping("/list")
     public Page pageJson(DefaultBusinessLogDTO defaultBusinessLogDTO,
-                                        @RequestParam int page, @RequestParam int pagesize) {
+                         @RequestParam int page, @RequestParam int pagesize) {
         Page<DefaultBusinessLogDTO> all = getBusinessLogApplication().pageQueryDefaultBusinessLog(defaultBusinessLogDTO, page, pagesize);
         return all;
     }
-
 
     @ResponseBody
     @RequestMapping("/delete")
@@ -53,7 +50,6 @@ public class DefaultBusinessLogController {
         result.put("data", getBusinessLogApplication().getDefaultBusinessLog(id));
         return result;
     }
-
 
     public BusinessLogApplication getBusinessLogApplication() {
         if (null == businessLogApplication) {

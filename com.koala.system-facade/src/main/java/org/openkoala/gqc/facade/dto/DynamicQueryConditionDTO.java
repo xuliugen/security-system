@@ -2,56 +2,56 @@ package org.openkoala.gqc.facade.dto;
 
 public class DynamicQueryConditionDTO extends QueryConditionDTO {
 
-	private static final long serialVersionUID = 6246789259896062885L;
-	
-	private String label;
-	
-	private WidgetTypeDTO widgetTypeDTO;
-	
-	private String value;
-	
-	private String startValue;
-	
-	private String endValue;
+    private static final long serialVersionUID = 6246789259896062885L;
 
-	public String getLabel() {
-		return label;
-	}
+    private String label;
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
+    private WidgetTypeDTO widgetTypeDTO;
 
-	public WidgetTypeDTO getWidgetTypeDTO() {
-		return widgetTypeDTO;
-	}
+    private String value;
 
-	public void setWidgetTypeDTO(WidgetTypeDTO widgetTypeDTO) {
-		this.widgetTypeDTO = widgetTypeDTO;
-	}
+    private String startValue;
 
-	public String getValue() {
-		return value;
-	}
+    private String endValue;
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    public String getLabel() {
+        return label;
+    }
 
-	public String getStartValue() {
-		return startValue;
-	}
+    public void setLabel(String label) {
+        this.label = label;
+    }
 
-	public void setStartValue(String startValue) {
-		this.startValue = startValue;
-	}
+    public WidgetTypeDTO getWidgetTypeDTO() {
+        return widgetTypeDTO;
+    }
 
-	public String getEndValue() {
-		return endValue;
-	}
+    public void setWidgetTypeDTO(WidgetTypeDTO widgetTypeDTO) {
+        this.widgetTypeDTO = widgetTypeDTO;
+    }
 
-	public void setEndValue(String endValue) {
-		this.endValue = endValue;
-	}
-	
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public String getStartValue() {
+        return startValue;
+    }
+
+    public void setStartValue(String startValue) {
+        this.startValue = startValue;
+    }
+
+    public String getEndValue() {
+        return endValue;
+    }
+
+    public void setEndValue(String endValue) {
+        this.endValue = endValue;
+    }
+
 }

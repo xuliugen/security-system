@@ -4,13 +4,11 @@ import org.openkoala.organisation.core.domain.Organization;
 import org.openkoala.security.core.domain.Scope;
 
 import javax.persistence.*;
-
 import java.util.Set;
 
 /**
  * 组织机构范围。
  * 支持数据权限。
- *
  * @author lucas
  */
 @Entity

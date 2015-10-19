@@ -3,22 +3,22 @@ package org.openkoala.organisation.core;
 
 public class PostExistException extends OrganisationException {
 
-	private static final long serialVersionUID = -8240795106100407123L;
+    private static final long serialVersionUID = -8240795106100407123L;
 
-	public PostExistException() {
-	}
+    public PostExistException() {
+    }
 
-	public PostExistException(String message) {
-		super(message);
-	}
+    public PostExistException(String message) {
+        super(message);
+    }
 
-	public PostExistException(Throwable cause) {
-		super(cause);
-	}
+    public PostExistException(Throwable cause) {
+        super(cause);
+    }
 
-	public PostExistException(String message,
-			Throwable cause) {
-		super(message, cause);
-	}
+    public PostExistException(String message,
+                              Throwable cause) {
+        super(message, cause);
+    }
 
 }

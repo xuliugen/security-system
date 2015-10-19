@@ -13,13 +13,11 @@ import org.apache.shiro.web.filter.authz.RolesAuthorizationFilter;
 /**
  * 角色授权过滤器，Shiro自带的角色授权过滤器无法满足需求（即{@link RolesAuthorizationFilter}验证的是用户拥有的所有角色，却没有用户拥有任意一个角色。），
  * 因此重写Shiro的{@link RolesAuthorizationFilter}。
- *
  * @author lucas
  */
 public class AnyRoleAuthorizationFilter extends RolesAuthorizationFilter {
 
     /**
-     *
      * @param request
      * @param response
      * @param mappedValue

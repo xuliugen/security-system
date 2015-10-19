@@ -12,7 +12,6 @@ import org.springframework.util.StringUtils;
  * 支持与或非（and or not）。
  * 不支持复杂的与或非嵌套使用。
  * 具体的实现交给了{@link org.openkoala.security.taglibs.Authz}。
- *
  * @author lucas
  */
 public class PermissionTag extends AbstractAuthorizationTag {

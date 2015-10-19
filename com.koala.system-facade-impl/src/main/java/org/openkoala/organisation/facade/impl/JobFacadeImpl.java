@@ -27,112 +27,112 @@ import org.openkoala.organisation.facade.impl.assembler.JobAssembler;
 @Named
 public class JobFacadeImpl implements JobFacade {
 
-	@Inject
-	private BaseApplication baseApplication;
-	
-	private QueryChannelService queryChannel;
+    @Inject
+    private BaseApplication baseApplication;
 
-	private QueryChannelService getQueryChannelService() {
-		if (queryChannel == null) {
-			queryChannel = InstanceFactory.getInstance(QueryChannelService.class, "queryChannel_org");
-		}
-		return queryChannel;
-	}
+    private QueryChannelService queryChannel;
 
-	@SuppressWarnings("unchecked")
-	
-	public Page<JobDTO> pagingQueryJobs(JobDTO jobSearchExample, int currentPage, int pageSize) {
-		List<Object> conditionVals = new ArrayList<Object>();
+    private QueryChannelService getQueryChannelService() {
+        if (queryChannel == null) {
+            queryChannel = InstanceFactory.getInstance(QueryChannelService.class, "queryChannel_org");
+        }
+        return queryChannel;
+    }
 
-		StringBuilder jpql = new StringBuilder("select NEW org.openkoala.organisation.facade.dto.JobDTO"
-				+ "(_job.id, _job.name, _job.createDate, _job.terminateDate, _job.sn, _job.version, _job.description)"
-				+ " from Job _job where _job.createDate <= ? and _job.terminateDate > ?");
-		Date now = new Date();
-		conditionVals.add(now);
-		conditionVals.add(now);
+    @SuppressWarnings("unchecked")
 
-		if (!StringUtils.isBlank(jobSearchExample.getName())) {
-			jpql.append(" and _job.name like ?");
-			conditionVals.add(MessageFormat.format("%{0}%", jobSearchExample.getName()));
-		}
-		if (!StringUtils.isBlank(jobSearchExample.getSn())) {
-			jpql.append(" and _job.sn like ?");
-			conditionVals.add(MessageFormat.format("%{0}%", jobSearchExample.getSn()));
-		}
-		if (!StringUtils.isBlank(jobSearchExample.getDescription())) {
-			jpql.append(" and _job.description like ?");
-			conditionVals.add(MessageFormat.format("%{0}%", jobSearchExample.getDescription()));
-		}
+    public Page<JobDTO> pagingQueryJobs(JobDTO jobSearchExample, int currentPage, int pageSize) {
+        List<Object> conditionVals = new ArrayList<Object>();
 
-		return getQueryChannelService().createJpqlQuery(jpql.toString()).setParameters(conditionVals).setPage(currentPage, pageSize).pagedList();
-	}
+        StringBuilder jpql = new StringBuilder("select NEW org.openkoala.organisation.facade.dto.JobDTO"
+                + "(_job.id, _job.name, _job.createDate, _job.terminateDate, _job.sn, _job.version, _job.description)"
+                + " from Job _job where _job.createDate <= ? and _job.terminateDate > ?");
+        Date now = new Date();
+        conditionVals.add(now);
+        conditionVals.add(now);
 
-	
-	public List<JobDTO> findAllJobs() {
-		List<JobDTO> results = new ArrayList<JobDTO>();
-		for (Job job : baseApplication.findAll(Job.class)) {
-			results.add(JobAssembler.toDTO(job));
-		}
-		return results;
-	}
+        if (!StringUtils.isBlank(jobSearchExample.getName())) {
+            jpql.append(" and _job.name like ?");
+            conditionVals.add(MessageFormat.format("%{0}%", jobSearchExample.getName()));
+        }
+        if (!StringUtils.isBlank(jobSearchExample.getSn())) {
+            jpql.append(" and _job.sn like ?");
+            conditionVals.add(MessageFormat.format("%{0}%", jobSearchExample.getSn()));
+        }
+        if (!StringUtils.isBlank(jobSearchExample.getDescription())) {
+            jpql.append(" and _job.description like ?");
+            conditionVals.add(MessageFormat.format("%{0}%", jobSearchExample.getDescription()));
+        }
 
-	
-	public InvokeResult createJob(JobDTO jobDto) {
-		try {
-			baseApplication.saveParty(JobAssembler.toEntity(jobDto));
-			return InvokeResult.success();
-		} catch (SnIsExistException exception) {
-			return InvokeResult.failure("职务编码: " + jobDto.getSn() + " 已被使用！");
-		} catch (NameExistException exception) {
-			return InvokeResult.failure("职务名称: " + jobDto.getName() + " 已经存在！");
-		} catch (Exception e) {
-			e.printStackTrace();
-			return InvokeResult.failure("保存失败！");
-		}
-	}
+        return getQueryChannelService().createJpqlQuery(jpql.toString()).setParameters(conditionVals).setPage(currentPage, pageSize).pagedList();
+    }
 
-	
-	public InvokeResult updateJobInfo(JobDTO jobDTO) {
-		try {
-			baseApplication.updateParty(JobAssembler.toEntity(jobDTO));
-			return InvokeResult.success();
-		} catch (SnIsExistException exception) {
-			return InvokeResult.failure("职务编码: " + jobDTO.getSn() + " 已被使用！");
-		} catch (NameExistException exception) {
-			return InvokeResult.failure("职务名称: " + jobDTO.getName() + " 已经存在！");
-		} catch (Exception e) {
-			e.printStackTrace();
-			return InvokeResult.failure("修改失败！");
-		}
-	}
 
-	
-	public JobDTO getJobById(Long id) {
-		return JobAssembler.toDTO(baseApplication.getEntity(Job.class, id));
-	}
+    public List<JobDTO> findAllJobs() {
+        List<JobDTO> results = new ArrayList<JobDTO>();
+        for (Job job : baseApplication.findAll(Job.class)) {
+            results.add(JobAssembler.toDTO(job));
+        }
+        return results;
+    }
 
-	
-	public InvokeResult terminateJob(JobDTO jobDTO) {
-		try {
-			baseApplication.terminateParty(JobAssembler.toEntity(jobDTO));
-			return InvokeResult.success();
-		} catch (TheJobHasPostAccountabilityException e) {
-			return InvokeResult.failure("该职务已被使用!");
-		}
-	}
 
-	
-	public InvokeResult terminateJobs(JobDTO[] jobDtos) {
-		Set<Job> jobs = new HashSet<Job>();
-		for (JobDTO jobDTO : jobDtos) {
-			jobs.add(JobAssembler.toEntity(jobDTO));
-		}
-		try {
-			baseApplication.terminateParties(jobs);
-			return InvokeResult.success();
-		} catch (TheJobHasPostAccountabilityException e) {
-			return InvokeResult.failure("该职务已被使用!");
-		}
-	}
+    public InvokeResult createJob(JobDTO jobDto) {
+        try {
+            baseApplication.saveParty(JobAssembler.toEntity(jobDto));
+            return InvokeResult.success();
+        } catch (SnIsExistException exception) {
+            return InvokeResult.failure("职务编码: " + jobDto.getSn() + " 已被使用！");
+        } catch (NameExistException exception) {
+            return InvokeResult.failure("职务名称: " + jobDto.getName() + " 已经存在！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return InvokeResult.failure("保存失败！");
+        }
+    }
+
+
+    public InvokeResult updateJobInfo(JobDTO jobDTO) {
+        try {
+            baseApplication.updateParty(JobAssembler.toEntity(jobDTO));
+            return InvokeResult.success();
+        } catch (SnIsExistException exception) {
+            return InvokeResult.failure("职务编码: " + jobDTO.getSn() + " 已被使用！");
+        } catch (NameExistException exception) {
+            return InvokeResult.failure("职务名称: " + jobDTO.getName() + " 已经存在！");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return InvokeResult.failure("修改失败！");
+        }
+    }
+
+
+    public JobDTO getJobById(Long id) {
+        return JobAssembler.toDTO(baseApplication.getEntity(Job.class, id));
+    }
+
+
+    public InvokeResult terminateJob(JobDTO jobDTO) {
+        try {
+            baseApplication.terminateParty(JobAssembler.toEntity(jobDTO));
+            return InvokeResult.success();
+        } catch (TheJobHasPostAccountabilityException e) {
+            return InvokeResult.failure("该职务已被使用!");
+        }
+    }
+
+
+    public InvokeResult terminateJobs(JobDTO[] jobDtos) {
+        Set<Job> jobs = new HashSet<Job>();
+        for (JobDTO jobDTO : jobDtos) {
+            jobs.add(JobAssembler.toEntity(jobDTO));
+        }
+        try {
+            baseApplication.terminateParties(jobs);
+            return InvokeResult.success();
+        } catch (TheJobHasPostAccountabilityException e) {
+            return InvokeResult.failure("该职务已被使用!");
+        }
+    }
 
 }

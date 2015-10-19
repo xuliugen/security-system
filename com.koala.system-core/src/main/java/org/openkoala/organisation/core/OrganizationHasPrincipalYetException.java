@@ -3,22 +3,22 @@ package org.openkoala.organisation.core;
 
 public class OrganizationHasPrincipalYetException extends OrganisationException {
 
-	private static final long serialVersionUID = 8825492614354652485L;
+    private static final long serialVersionUID = 8825492614354652485L;
 
-	public OrganizationHasPrincipalYetException() {
-	}
+    public OrganizationHasPrincipalYetException() {
+    }
 
-	public OrganizationHasPrincipalYetException(String message) {
-		super(message);
-	}
+    public OrganizationHasPrincipalYetException(String message) {
+        super(message);
+    }
 
-	public OrganizationHasPrincipalYetException(Throwable cause) {
-		super(cause);
-	}
+    public OrganizationHasPrincipalYetException(Throwable cause) {
+        super(cause);
+    }
 
-	public OrganizationHasPrincipalYetException(String message,
-			Throwable cause) {
-		super(message, cause);
-	}
+    public OrganizationHasPrincipalYetException(String message,
+                                                Throwable cause) {
+        super(message, cause);
+    }
 
 }

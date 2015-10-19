@@ -54,10 +54,10 @@ public class SecurityOrgAccessFacadeImpl implements SecurityOrgAccessFacade {
         for (EmployeeUser employeeUser : employeeUsers) {
             EmployeeUserDTO result = EmployeeUserAssembler.toEmployeeUserDTO(employeeUser);
             // 这个地方直接使用用户管理的员工的组织的名称。因为组织的名称和范围的名称一直。保存同步
-            if(employeeUser.getEmployee() != null){
+            if (employeeUser.getEmployee() != null) {
                 result.setEmployeeName(employeeUser.getEmployee().getName());
                 Organization organization = employeeUser.getEmployee().getOrganization(new Date());
-                if(organization != null){
+                if (organization != null) {
                     result.setEmployeeOrgName(organization.getName());
                     result.setEmployeeOrgId(organization.getId());
                 }
@@ -67,18 +67,18 @@ public class SecurityOrgAccessFacadeImpl implements SecurityOrgAccessFacade {
         return results;
     }
 
-    private List<OrgRoleDTO> transformToOrgRoleDTO(List<Authorization> authorizations){
+    private List<OrgRoleDTO> transformToOrgRoleDTO(List<Authorization> authorizations) {
         List<OrgRoleDTO> results = new ArrayList<OrgRoleDTO>();
-        for(Authorization authorization : authorizations){
+        for (Authorization authorization : authorizations) {
             OrgRoleDTO result = null;
-            if(authorization.getAuthority() instanceof  Role){
+            if (authorization.getAuthority() instanceof Role) {
                 Role role = (Role) authorization.getAuthority();
-                result = new OrgRoleDTO(role.getId(),role.getName(),role.getDescription());
+                result = new OrgRoleDTO(role.getId(), role.getName(), role.getDescription());
             }
             // 直接使用范围的名称，因为范围保持一致。
-            if(authorization.getScope() instanceof OrganisationScope){
+            if (authorization.getScope() instanceof OrganisationScope) {
                 OrganisationScope scope = (OrganisationScope) authorization.getScope();
-                if(result != null){
+                if (result != null) {
                     result.setEmployeeUserOrgName(scope.getName());
                 }
             }
@@ -87,18 +87,18 @@ public class SecurityOrgAccessFacadeImpl implements SecurityOrgAccessFacade {
         return results;
     }
 
-    private List<OrgPermissionDTO> transformToOrgPermissionDTO(List<Authorization> authorizations){
+    private List<OrgPermissionDTO> transformToOrgPermissionDTO(List<Authorization> authorizations) {
         List<OrgPermissionDTO> results = new ArrayList<OrgPermissionDTO>();
-        for(Authorization authorization : authorizations){
+        for (Authorization authorization : authorizations) {
             OrgPermissionDTO result = null;
-            if(authorization.getAuthority() instanceof  Permission){
+            if (authorization.getAuthority() instanceof Permission) {
                 Permission permission = (Permission) authorization.getAuthority();
-                result = new OrgPermissionDTO(permission.getId(),permission.getName(),permission.getIdentifier(),permission.getDescription());
+                result = new OrgPermissionDTO(permission.getId(), permission.getName(), permission.getIdentifier(), permission.getDescription());
             }
             // 直接使用范围的名称，因为范围保持一致。
-            if(authorization.getScope() instanceof OrganisationScope){
+            if (authorization.getScope() instanceof OrganisationScope) {
                 OrganisationScope scope = (OrganisationScope) authorization.getScope();
-                if(result != null){
+                if (result != null) {
                     result.setEmployeeUserOrgName(scope.getName());
                 }
             }
@@ -111,7 +111,7 @@ public class SecurityOrgAccessFacadeImpl implements SecurityOrgAccessFacade {
 
     public QueryChannelService getQueryChannelService() {
         if (queryChannelService == null) {
-            queryChannelService = InstanceFactory.getInstance(QueryChannelService.class,"queryChannel_security");
+            queryChannelService = InstanceFactory.getInstance(QueryChannelService.class, "queryChannel_security");
         }
         return queryChannelService;
     }

@@ -11,10 +11,8 @@ import javax.servlet.*;
  */
 public class LogFilter extends BusinessLogServletFilter {
 
-
     /**
      * 将需要用到的信息放入日志上下文
-     *
      * @param req
      * @param resp
      * @param chain
@@ -25,7 +23,6 @@ public class LogFilter extends BusinessLogServletFilter {
         // TODO 需要自己实现获取用户名
         addUserContext(req.getParameter("user"));
     }
-
 
     public void init(FilterConfig filterConfig) throws ServletException {
         //To change body of implemented methods use File | Settings | File Templates.

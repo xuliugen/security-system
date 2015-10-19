@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 岗位管理
- *
  * @author xmfang
  */
 @Controller
@@ -29,7 +28,6 @@ public class PostController extends BaseController {
 
     /**
      * 分页查询职务
-     *
      * @param page
      * @param pagesize
      * @param postDto
@@ -38,12 +36,11 @@ public class PostController extends BaseController {
     @ResponseBody
     @RequestMapping("/pagingquery")
     public Page<PostDTO> pagingQuery(int page, int pagesize, PostDTO postDto) {
-    	return postFacade.pagingQueryPosts(postDto, page, pagesize);
+        return postFacade.pagingQueryPosts(postDto, page, pagesize);
     }
 
     /**
      * 创建一个岗位
-     *
      * @param postDto
      * @param organizationId
      * @return
@@ -51,23 +48,22 @@ public class PostController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public InvokeResult createPost(PostDTO postDto, Long organizationId) {
-    	postDto.setOrganizationId(organizationId);
+        postDto.setOrganizationId(organizationId);
         return postFacade.createPost(postDto);
     }
 
-	/**
-	 * 更新岗位信息
-	 *
+    /**
+     * 更新岗位信息
      * @param postDto
      * @param organizationId
-	 * @return
-	 */
-	@ResponseBody
-	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public InvokeResult updatePost(PostDTO postDto, Long organizationId) {
-		postDto.setOrganizationId(organizationId);
-		return postFacade.updatePostInfo(postDto);
-	}
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/update", method = RequestMethod.POST)
+    public InvokeResult updatePost(PostDTO postDto, Long organizationId) {
+        postDto.setOrganizationId(organizationId);
+        return postFacade.updatePostInfo(postDto);
+    }
 
     @ResponseBody
     @RequestMapping("/query-post-by-org")
@@ -83,7 +79,6 @@ public class PostController extends BaseController {
 
     /**
      * 根据ID获得职务
-     *
      * @param id
      * @return
      */
@@ -95,7 +90,6 @@ public class PostController extends BaseController {
 
     /**
      * 撤销某个职务
-     *
      * @param postDto
      * @return
      */
@@ -107,7 +101,6 @@ public class PostController extends BaseController {
 
     /**
      * 同时撤销多个职务
-     *
      * @param postDtos
      * @return
      */
@@ -116,5 +109,5 @@ public class PostController extends BaseController {
     public InvokeResult terminatePosts(@RequestBody PostDTO[] postDtos) {
         return postFacade.terminatePosts(postDtos);
     }
-    
+
 }

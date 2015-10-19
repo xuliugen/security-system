@@ -2,46 +2,46 @@ package org.openkoala.gqc.facade.dto;
 
 public class PreQueryConditionDTO extends QueryConditionDTO {
 
-	private static final long serialVersionUID = -9045515537242271929L;
-	
-	private String value;
-	
-	private String startValue;
-	
-	private String endValue;
-	
-	private Boolean visible = false;
+    private static final long serialVersionUID = -9045515537242271929L;
 
-	public String getValue() {
-		return value;
-	}
+    private String value;
 
-	public void setValue(String value) {
-		this.value = value;
-	}
+    private String startValue;
 
-	public String getStartValue() {
-		return startValue;
-	}
+    private String endValue;
 
-	public void setStartValue(String startValue) {
-		this.startValue = startValue;
-	}
+    private Boolean visible = false;
 
-	public String getEndValue() {
-		return endValue;
-	}
+    public String getValue() {
+        return value;
+    }
 
-	public void setEndValue(String endValue) {
-		this.endValue = endValue;
-	}
+    public void setValue(String value) {
+        this.value = value;
+    }
 
-	public Boolean getVisible() {
-		return visible;
-	}
+    public String getStartValue() {
+        return startValue;
+    }
 
-	public void setVisible(Boolean visible) {
-		this.visible = visible;
-	}
-	
+    public void setStartValue(String startValue) {
+        this.startValue = startValue;
+    }
+
+    public String getEndValue() {
+        return endValue;
+    }
+
+    public void setEndValue(String endValue) {
+        this.endValue = endValue;
+    }
+
+    public Boolean getVisible() {
+        return visible;
+    }
+
+    public void setVisible(Boolean visible) {
+        this.visible = visible;
+    }
+
 }

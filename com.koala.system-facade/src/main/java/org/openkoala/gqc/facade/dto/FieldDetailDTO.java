@@ -4,26 +4,26 @@ import java.io.Serializable;
 
 public class FieldDetailDTO implements Serializable {
 
-	private static final long serialVersionUID = -6712912171901340171L;
-	
-	private String fieldName;
-	
-	private String label;
+    private static final long serialVersionUID = -6712912171901340171L;
 
-	public String getFieldName() {
-		return fieldName;
-	}
+    private String fieldName;
 
-	public void setFieldName(String fieldName) {
-		this.fieldName = fieldName;
-	}
+    private String label;
 
-	public String getLabel() {
-		return label;
-	}
+    public String getFieldName() {
+        return fieldName;
+    }
 
-	public void setLabel(String label) {
-		this.label = label;
-	}
-	
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
 }

@@ -6,36 +6,35 @@ import java.util.List;
 /**
  * SQL语句模型（可以是整条sql语句或者是条件语句）
  * @author xmfang
- *
  */
 public class SqlStatmentMode {
 
-	private String statment;
-	
-	private List<Object> values = new ArrayList<Object>();
+    private String statment;
 
-	public String getStatment() {
-		return statment;
-	}
+    private List<Object> values = new ArrayList<Object>();
 
-	public void setStatment(String statment) {
-		this.statment = statment;
-	}
+    public String getStatment() {
+        return statment;
+    }
 
-	public List<Object> getValues() {
-		return new ArrayList<Object>(values);
-	}
+    public void setStatment(String statment) {
+        this.statment = statment;
+    }
 
-	public void addValues(List<Object> values) {
-		this.values.addAll(values);
-	}
+    public List<Object> getValues() {
+        return new ArrayList<Object>(values);
+    }
 
-	public void addValue(Object value) {
-		values.add(value);
-	}
-	
-	public void removeValue(Object value) {
-		values.remove(value);
-	}
-	
+    public void addValues(List<Object> values) {
+        this.values.addAll(values);
+    }
+
+    public void addValue(Object value) {
+        values.add(value);
+    }
+
+    public void removeValue(Object value) {
+        values.remove(value);
+    }
+
 }

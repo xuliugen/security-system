@@ -4,17 +4,17 @@ import java.util.Set;
 
 public class GrantPermissionToUserInScopeCommand {
 
-	private Long permissionId;
+    private Long permissionId;
 
-	private Set<Long> scopeIds;
+    private Set<Long> scopeIds;
 
-	public Long getPermissionId() {
-		return permissionId;
-	}
+    public Long getPermissionId() {
+        return permissionId;
+    }
 
-	public void setPermissionId(Long permissionId) {
-		this.permissionId = permissionId;
-	}
+    public void setPermissionId(Long permissionId) {
+        this.permissionId = permissionId;
+    }
 
     public Set<Long> getScopeIds() {
         return scopeIds;

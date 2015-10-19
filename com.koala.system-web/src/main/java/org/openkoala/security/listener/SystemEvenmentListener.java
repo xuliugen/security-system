@@ -12,7 +12,6 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 
 /**
  * 初始化Shiro过滤器链。
- *
  * @author lucas
  */
 public class SystemEvenmentListener implements ServletContextListener {

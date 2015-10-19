@@ -4,46 +4,46 @@ import java.io.Serializable;
 
 public abstract class QueryConditionDTO implements Serializable {
 
-	private static final long serialVersionUID = -3244024590117914634L;
-	
-	private String fieldName;
-	
-	private QueryOperation queryOperationDTO;
-	
-	private Integer fieldType;
-	
-	private DataSourceDTO dataSourceDTO;
+    private static final long serialVersionUID = -3244024590117914634L;
 
-	public String getFieldName() {
-		return fieldName;
-	}
+    private String fieldName;
 
-	public void setFieldName(String fieldName) {
-		this.fieldName = fieldName;
-	}
+    private QueryOperation queryOperationDTO;
 
-	public QueryOperation getQueryOperation() {
-		return queryOperationDTO;
-	}
+    private Integer fieldType;
 
-	public void setQueryOperation(QueryOperation queryOperationDTO) {
-		this.queryOperationDTO = queryOperationDTO;
-	}
+    private DataSourceDTO dataSourceDTO;
 
-	public Integer getFieldType() {
-		return fieldType;
-	}
+    public String getFieldName() {
+        return fieldName;
+    }
 
-	public void setFieldType(Integer fieldType) {
-		this.fieldType = fieldType;
-	}
+    public void setFieldName(String fieldName) {
+        this.fieldName = fieldName;
+    }
 
-	public DataSourceDTO getDataSourceDTO() {
-		return dataSourceDTO;
-	}
+    public QueryOperation getQueryOperation() {
+        return queryOperationDTO;
+    }
 
-	public void setDataSourceDTO(DataSourceDTO dataSourceDTO) {
-		this.dataSourceDTO = dataSourceDTO;
-	}
-	
+    public void setQueryOperation(QueryOperation queryOperationDTO) {
+        this.queryOperationDTO = queryOperationDTO;
+    }
+
+    public Integer getFieldType() {
+        return fieldType;
+    }
+
+    public void setFieldType(Integer fieldType) {
+        this.fieldType = fieldType;
+    }
+
+    public DataSourceDTO getDataSourceDTO() {
+        return dataSourceDTO;
+    }
+
+    public void setDataSourceDTO(DataSourceDTO dataSourceDTO) {
+        this.dataSourceDTO = dataSourceDTO;
+    }
+
 }

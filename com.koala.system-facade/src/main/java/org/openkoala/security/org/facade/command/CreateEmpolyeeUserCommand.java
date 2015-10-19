@@ -4,13 +4,13 @@ import org.openkoala.security.facade.command.CreateUserCommand;
 
 public class CreateEmpolyeeUserCommand extends CreateUserCommand {
 
-	private Long employeeId;
+    private Long employeeId;
 
-	public Long getEmployeeId() {
-		return employeeId;
-	}
+    public Long getEmployeeId() {
+        return employeeId;
+    }
 
-	public void setEmployeeId(Long employeeId) {
-		this.employeeId = employeeId;
-	}
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
+    }
 }

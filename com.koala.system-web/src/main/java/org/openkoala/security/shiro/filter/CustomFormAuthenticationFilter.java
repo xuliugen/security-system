@@ -9,15 +9,15 @@ import org.slf4j.LoggerFactory;
 
 public class CustomFormAuthenticationFilter extends FormAuthenticationFilter {
 
-	private static final Logger LOGGER = LoggerFactory.getLogger(CustomFormAuthenticationFilter.class);
-	
-	@Override
-	protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
-		LOGGER.info("inito CustomFormAuthenticationFilter onAccessDenied");
-		if (request.getAttribute(getFailureKeyAttribute()) != null) {
-			return true;
-		}
-		
-		return super.onAccessDenied(request, response);
-	}
+    private static final Logger LOGGER = LoggerFactory.getLogger(CustomFormAuthenticationFilter.class);
+
+    @Override
+    protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
+        LOGGER.info("inito CustomFormAuthenticationFilter onAccessDenied");
+        if (request.getAttribute(getFailureKeyAttribute()) != null) {
+            return true;
+        }
+
+        return super.onAccessDenied(request, response);
+    }
 }

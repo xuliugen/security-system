@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 /**
  * 大部分都直接是使用shiro中的代码。
  * property这里可以看做是{@link org.openkoala.security.shiro.realm.ShiroUser}。
- *
  * @author lucas
  */
 public class UserTag extends AbstractAuthorizationTag {

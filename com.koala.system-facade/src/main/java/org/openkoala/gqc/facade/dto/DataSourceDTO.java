@@ -3,12 +3,10 @@ package org.openkoala.gqc.facade.dto;
 import java.io.Serializable;
 
 /**
- * 
  * 与展示层交互的数据源对象
- *
  */
 public class DataSourceDTO implements Serializable {
-	
+
     private static final long serialVersionUID = -4952281843127855419L;
 
     /**
@@ -46,7 +44,6 @@ public class DataSourceDTO implements Serializable {
      */
     private DataSourceType dataSourceType;
 
-   
 
     /**
      * jdbc驱动
@@ -62,16 +59,16 @@ public class DataSourceDTO implements Serializable {
      * 版本号 verson
      */
     private int version;
-    
+
     public int getVersion() {
-		return version;
-	}
+        return version;
+    }
 
-	public void setVersion(int version) {
-		this.version = version;
-	}
+    public void setVersion(int version) {
+        this.version = version;
+    }
 
-	public void setUsername(String username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
@@ -112,14 +109,14 @@ public class DataSourceDTO implements Serializable {
     }
 
     public DataSourceType getDataSourceType() {
-		return dataSourceType;
-	}
+        return dataSourceType;
+    }
 
-	public void setDataSourceType(DataSourceType dataSourceType) {
-		this.dataSourceType = dataSourceType;
-	}
+    public void setDataSourceType(DataSourceType dataSourceType) {
+        this.dataSourceType = dataSourceType;
+    }
 
-	public void setJdbcDriver(String jdbcDriver) {
+    public void setJdbcDriver(String jdbcDriver) {
         this.jdbcDriver = jdbcDriver;
     }
 
@@ -153,21 +150,21 @@ public class DataSourceDTO implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj){
+        if (this == obj) {
             return true;
         }
-        if (obj == null){
+        if (obj == null) {
             return false;
         }
-        if (getClass() != obj.getClass()){
+        if (getClass() != obj.getClass()) {
             return false;
         }
         DataSourceDTO other = (DataSourceDTO) obj;
         if (id == null) {
-            if (other.id != null){
+            if (other.id != null) {
                 return false;
             }
-        } else if (!id.equals(other.id)){
+        } else if (!id.equals(other.id)) {
             return false;
         }
         return true;

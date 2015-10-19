@@ -3,22 +3,22 @@ package org.openkoala.organisation.core;
 
 public class NameExistException extends OrganisationException {
 
-	private static final long serialVersionUID = 3268108265128574596L;
+    private static final long serialVersionUID = 3268108265128574596L;
 
-	public NameExistException() {
-	}
+    public NameExistException() {
+    }
 
-	public NameExistException(String message) {
-		super(message);
-	}
+    public NameExistException(String message) {
+        super(message);
+    }
 
-	public NameExistException(Throwable cause) {
-		super(cause);
-	}
+    public NameExistException(Throwable cause) {
+        super(cause);
+    }
 
-	public NameExistException(String message,
-			Throwable cause) {
-		super(message, cause);
-	}
+    public NameExistException(String message,
+                              Throwable cause) {
+        super(message, cause);
+    }
 
 }
