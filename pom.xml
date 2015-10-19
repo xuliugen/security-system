@@ -39,7 +39,7 @@
         <profile>
             <id>H2</id>
             <activation>
-                <activeByDefault>true</activeByDefault>
+                <activeByDefault>false</activeByDefault>
             </activation>
             <properties>
                 <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
@@ -62,17 +62,17 @@
         <profile>
             <id>MySQL</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
                 <hibernate.hbm2ddl.auto>update</hibernate.hbm2ddl.auto>
                 <hibernate.show_sql>true</hibernate.show_sql>
                 <hibernate.dialect>org.hibernate.dialect.MySQL5Dialect</hibernate.dialect>
                 <db.jdbcDriver>com.mysql.jdbc.Driver</db.jdbcDriver>
-                <db.connectionURL>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8
+                <db.connectionURL>jdbc:mysql://localhost:3306/security-system?useUnicode=true&amp;characterEncoding=UTF-8
                 </db.connectionURL>
                 <db.username>root</db.username>
-                <db.password>root</db.password>
+                <db.password>xu827928</db.password>
                 <db.Type>MYSQL</db.Type>
                 <db.testsql>select 1</db.testsql>
                 <db.generateDdl>true</db.generateDdl>
